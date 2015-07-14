@@ -8,6 +8,9 @@
 
 using namespace std;
 
+/**
+ * Class to debug Constructors/Destructors and simple hello method.
+ */
 class MyObj {
       const char *name;
       public:
@@ -25,7 +28,10 @@ class MyObj {
 
 #define MY_DEBUG(msg) cout << __FILE__ << ":" << __LINE__ << " " << __PRETTY_FUNCTION__ << " " << (msg) <<  endl
 
-static void shared_ptr_example(void){
+/**
+ * Example how to use vector of shared_ptr objects
+ */
+static void vector_shared_ptr_example(void){
   MY_DEBUG("Entering");
 
   MyObj loc1("loc1");
@@ -45,9 +51,22 @@ static void shared_ptr_example(void){
   MY_DEBUG("Exiting");
 }
 
+/**
+ * Example how to use scoped_ptr
+ */
+static void scoped_ptr_example(void){
+  MY_DEBUG("Entering");
+
+  boost::scoped_ptr<MyObj> scoped(new MyObj("scoped"));
+  scoped->hello();
+
+  MY_DEBUG("Exiting");
+}
 
 int main(int argc, char **argv){
 
-    shared_ptr_example();
+    vector_shared_ptr_example();
+    cout << endl;
+    scoped_ptr_example();
     return 0;
 }
