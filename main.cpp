@@ -31,7 +31,8 @@ static void shared_ptr_example(void){
   MyObj loc1("loc1");
   loc1.hello();
 
- // scoped array mi funguje jen na primitivni typy, ale tohle je snad ok...
+ // I had no luck with scoped_array<MyObj>
+ // However vector< shared_ptr<MyObj> > seems to be better anyway...
  vector< boost::shared_ptr<MyObj> > vec;
  vec.push_back( boost::shared_ptr<MyObj>( new MyObj("array[0]") ) );
  vec.push_back( boost::shared_ptr<MyObj>( new MyObj("array[1]") ) );
