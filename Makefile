@@ -1,6 +1,6 @@
 CXXFLAGS = -g -Wall
 LDFLAGS  = -g
-LDLIBS   = -lboost_system
+LDLIBS   = -lboost_system -lstdc++
 
 all : main
 
